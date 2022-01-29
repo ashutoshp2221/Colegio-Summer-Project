@@ -1,0 +1,12 @@
+<%- include("partials/header"); -%>
+<div class="container pt-4 text-center">
+  <h1 class="my-3"><%=title%></h1>
+  <p style="text-align: justify;" class="mb-5"><%=content%></p>
+
+  <form action="/viewsubmissions" method="POST">
+    <input type="hidden" name="postId" value="<%=postId%>" />
+    <button type="submit" class="btn btn-dark">View Submissions</button>
+  </form>
+</div>
+
+<%- include("partials/footer"); -%>

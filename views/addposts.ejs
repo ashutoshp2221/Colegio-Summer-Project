@@ -1,0 +1,28 @@
+<%- include("partials/form"); -%>
+<form action="/compose" method="post">
+  <div class="form-floating">
+    <input
+      id="title"
+      class="form-control mb-3"
+      type="text"
+      name="postTitle"
+    /><label for="title">Title</label>
+  </div>
+
+  <div class="form-floating">
+    <textarea
+      class="form-control mb-3"
+      id="desc"
+      name="postBody"
+      rows="5"
+      cols="30"
+      style="height: 75px"
+    ></textarea>
+    <label for="desc">Description</label>
+  </div>
+
+  <input value="<%=singleclassId%>" type="hidden" name="singleclassId" />
+  <button class="btn btn-primary" type="submit" name="button">Add Posts</button>
+</form>
+
+<%- include("partials/footer"); -%>

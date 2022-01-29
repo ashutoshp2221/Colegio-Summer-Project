@@ -1,0 +1,47 @@
+<%- include("partials/form"); -%>
+<form action="/addclass" method="post">
+  <div class="form-floating">
+    <input
+      id="title"
+      class="form-control mb-3"
+      type="text"
+      name="classTitle"
+    /><label for="title">Class Name</label>
+  </div>
+
+  <div class="form-floating">
+    <textarea
+      class="form-control mb-3"
+      id="desc"
+      name="classDescription"
+      rows="5"
+      cols="30"
+      style="height: 75px;"
+    ></textarea>
+    <label for="desc">Description</label>
+  </div>
+
+  <div class="form-floating">
+    <input
+      id="batch"
+      class="form-control mb-3"
+      type="text"
+      name="forBatch"
+    /><label for="batch">For Batch</label>
+  </div>
+
+  <input
+    class="form-control"
+    type="hidden"
+    value="<%=createdby%>"
+    name="createdby"
+  />
+
+  <button class="btn btn-primary" type="submit" name="button">
+    Add Class
+  </button>
+</form>
+</div>
+</div>
+
+<%- include("partials/footer"); -%>

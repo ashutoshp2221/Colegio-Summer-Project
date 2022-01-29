@@ -1,0 +1,30 @@
+<%- include("partials/header.ejs"); -%>
+
+<div class="text-center pt-4 pb-5">
+  <h1 class="mb-3">Posts</h1>
+  <form action="/addposts" method="POST">
+    <input type="hidden" name="singleclassId" value="<%=singleclassId%>" />
+    <button class="btn btn-primary" type="submit">Add Posts</button>
+  </form>
+</div>
+
+<div class="container">
+    <% posts.forEach(function(post){ %>
+    <div class="row mb-5">
+      <div class="py-5 px-3 bg-dark rounded text-white">
+        <h2 class="card-title"><%=post.title%></h2>
+        <p>
+          <%= post.content.length > 100 ? post.content.substring(0, 100) + "..." : post.content %>
+        </p>
+        <form action="/posts/<%=post._id%>" method="POST">
+        <input type="hidden" name="usertype" value="faculty" />
+        <input type="hidden" name="postId" value="<%=post._id%>" />
+        <button type="submit" class="btn btn-outline-light">Read More</button>
+      </form>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>
+
+<%- include("partials/footer.ejs"); -%>

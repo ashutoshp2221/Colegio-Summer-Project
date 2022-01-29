@@ -1,0 +1,31 @@
+<%- include("partials/header.ejs"); -%>
+
+  <div class="text-center pt-4 pb-5">
+    <h1 class="mb-3">Enrolled Classes</h1>
+    <a href="/logout" class="btn btn-dark me-4"> Logout</a>
+    <a href="/addclass" class="btn btn-dark ms-4"> Add Class</a>
+  </div>
+
+  <div class="container pt-4">
+    <div class="row">
+      <% classes.forEach(function(singleclass){ %>
+        <div class="col-md-4 mb-4">
+          <div class="py-5 px-3 text-white bg-dark rounded">
+            <h2 class="card-title">
+              <%=singleclass.classname%>
+            </h2>
+            <p>
+              <%=singleclass.description.substring(0, 100) %>
+            </p>
+            <form action="/classes/<%=singleclass._id%>" method="POST">
+              <input type="hidden" name="usertype" value="faculty">
+              <input type="hidden" name="singleclassId" value="<%=singleclass._id%>">
+              <button type="submit" class="btn btn-outline-light">Open Class</button>
+            </form>
+          </div>
+        </div>
+        <% }) %>
+    </div>
+  </div>
+
+  <%- include("partials/footer.ejs"); -%>

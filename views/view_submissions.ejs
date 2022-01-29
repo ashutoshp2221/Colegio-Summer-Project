@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs"); -%>
+
+<div class="text-center pt-4 pb-5">
+  <h1 class="mb-3">Submissions</h1>
+</div>
+
+<div class="container">
+  <% submissions.forEach(function(submission){ %>
+  <div class="row mb-5">
+    <div class="py-5 px-3 bg-dark rounded text-white">
+      <h2 class="card-title"><%=submission.rollno%></h2>
+      <a href="<%=submission.submissionlink%>" class="text-decoration-none text-white" target="_blank">Submission</a>
+    </div>
+  </div>
+  <% }) %>
+</div>
+
+<%- include("partials/footer.ejs"); -%>
